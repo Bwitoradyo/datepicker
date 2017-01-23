@@ -1,0 +1,304 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-8">
+      <h1>
+        TAB
+      </h1>
+      <tabset>
+        <tab heading="Static title">Static content</tab>
+        <tab heading="Static title 2">Static content 2</tab>
+        <tab (select)="alertMe()">
+          <template tabHeading>
+            <i class="glyphicon glyphicon-bell"></i> Alert!
+          </template>
+          I've got an HTML heading, and a select callback. Pretty cool!
+        </tab>
+      </tabset>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-8">
+<h1>
+  DATE PICKER
+</h1>
+
+<form>
+  <datepicker name="startDate" [(ngModel)]="startDate">
+
+  </datepicker>
+</form>
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-md-6">
+    <h1>
+      BUTTON DROP DOWNS
+    </h1>
+<div class="btn-group" dropdown>
+  <button id="single-button" type="button" class="btn btn-primary" dropdownToggle>
+    Button dropdown <span class="caret"></span>
+  </button>
+  <ul dropdownMenu role="menu" aria-labelledby="single-button">
+    <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+    <li class="divider dropdown-divider"></li>
+    <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a></li>
+  </ul>
+</div>
+    </div>
+  </div>
+  <br>
+  <br>
+
+  <div class="row">
+    <div class="col-md-8">
+      <h1>
+        ACCORDION
+      </h1>
+<accordion>
+  <accordion-group heading="Static Header, initially expanded">
+    This content is straight in the template.
+  </accordion-group>
+  <accordion-group #group>
+    <div accordion-heading>
+      I can have markup, too!
+      <i class="pull-right float-xs-right glyphicon"
+         [ngClass]="{'glyphicon-chevron-down': group?._isOpen, 'glyphicon-chevron-right': !group?._isOpen}"></i>
+    </div>
+    This is just some content to illustrate fancy headings.
+  </accordion-group>
+  <accordion-group heading="Content 1">
+    <p>Content 1</p>
+  </accordion-group>
+  <accordion-group heading="Content 2">
+    <p>Content 2</p>
+  </accordion-group>
+</accordion>
+    </div>
+  </div>
+  <br>
+  <br>
+
+
+  <div class="row">
+    <div class="col-md-8">
+      <h1>
+        ALERTS
+      </h1>
+<alert type="success">
+  <h3>Well done!</h3> You successfully read this important alert message.
+</alert>
+<alert type="info">
+  <h3>Heads up!</h3> This alert needs your attention, but it's not super important.
+</alert>
+<alert type="warning">
+  <h3>Warning!</h3> Better check yourself, you're not looking too good.
+</alert>
+<alert type="danger">
+  <h3>Oh snap!</h3> Change a few things up and try submitting again.
+</alert>
+  </div>
+  </div>
+  <br>
+  <br>
+
+
+  <div class="row">
+    <div class="col-md-8">
+      <h1>
+        BUTTON
+      </h1>
+      <pre class="card card-block card-header">{{singleModel}}</pre>
+      <button type="button" class="btn btn-primary"
+              [(ngModel)]="singleModel" btnCheckbox
+              btnCheckboxTrue="1" btnCheckboxFalse="0">
+        Single Toggle
+      </button>
+    </div>
+  </div>
+  <br>
+  <br>
+
+  <div class="row">
+    <div class="col-md-8">
+      <h1>
+        CAROUSEL
+      </h1>
+      <carousel>
+        <slide>
+          <img src="http://www.smart-business.co.il/wp-content/uploads/2016/02/pojo-placeholder-3-1-768x576.png" alt="First slide">
+          <div class="carousel-caption">
+            <h3>First slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </slide>
+        <slide>
+          <img src="http://www.smart-business.co.il/wp-content/uploads/2016/02/pojo-placeholder-4-1-768x576.png" alt="Second slide">
+          <div class="carousel-caption">
+            <h3>Second slide label</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </slide>
+        <slide>
+          <img src="http://www.smart-business.co.il/wp-content/uploads/2016/02/pojo-placeholder-5-1-768x576.png" alt="Third slide">
+          <div class="carousel-caption">
+            <h3>Third slide label</h3>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+          </div>
+        </slide>
+      </carousel>
+    </div>
+  </div>
+  <br>
+  <br>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h1>
+        COLLAPSE
+      </h1>
+  <button type="button" class="btn btn-primary"
+          (click)="isCollapsed = !isCollapsed">Toggle collapse
+  </button>
+  <hr>
+  <div (collapsed)="collapsed($event)"
+       (expanded)="expanded($event)"
+       [collapse]="isCollapsed"
+       class="card card-block card-header">
+    <div class="well well-lg">Some content</div>
+  </div>
+  </div>
+  </div>
+  <br>
+  <br>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h1>
+        MODAL
+      </h1>
+      <!--Small modal-->
+      <button type="button" class="btn btn-primary" (click)="smModal.show()">Small modal</button>
+
+      <div bsModal #smModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title pull-left">Small modal</h4>
+              <button type="button" class="close pull-right" aria-label="Close" (click)="smModal.hide()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+
+  <div class="row">
+    <div class="col-md-8">
+      <h1>
+        PAGINATION
+      </h1>
+      <pagination [totalItems]="totalItems" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)"></pagination>
+
+      <pagination [boundaryLinks]="true" [totalItems]="totalItems" [(ngModel)]="currentPage" class="pagination-sm"
+                  previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"></pagination>
+
+      <pagination [directionLinks]="false" [boundaryLinks]="true" [totalItems]="totalItems"
+                  [(ngModel)]="currentPage"></pagination>
+
+      <pagination [directionLinks]="false" [totalItems]="totalItems" [(ngModel)]="currentPage"
+                  (numPages)="smallnumPages = $event"></pagination>
+
+      <pre class="card card-block card-header">The selected page no: {{currentPage}}/{{smallnumPages}}</pre>
+
+      <button type="button" class="btn btn-info" (click)="setPage(3)">Set current page to: 3</button>
+    </div>
+  </div>
+  <br>
+  <br>
+
+  <div class="row">
+    <div class="col-md-8">
+      <h1>
+        POPOVER
+      </h1>
+      <button type="button" class="btn btn-default btn-secondary"
+              popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+              popoverTitle="Popover on left"
+              placement="left">
+        Popover on left
+      </button>
+
+      <button type="button" class="btn btn-default btn-secondary"
+              popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+              popoverTitle="Popover on top"
+              placement="top">
+        Popover on top
+      </button>
+
+      <button type="button" class="btn btn-default btn-secondary"
+              popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+              popoverTitle="Popover on bottom"
+              placement="bottom">
+        Popover on bottom
+      </button>
+
+      <button type="button" class="btn btn-default btn-secondary"
+              popover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+              popoverTitle="Popover on right"
+              placement="right">
+        Popover on right
+      </button>
+
+      <br>
+      <br>
+      <br>
+
+      <template #popTemplate>Here we go: <div [innerHtml]="html"></div></template>
+      <button type="button" class="btn btn-success"
+              [popover]="popTemplate" popoverTitle="Dynamic html inside">
+        Show me popover with html
+      </button>
+    </div>
+  </div>
+  <br>
+  <br>
+
+  <div class="row">
+    <div class="col-md-8">
+      <h1>
+        DYNAMIC RATING
+      </h1>
+      <rating [(ngModel)]="rate" [max]="max" [readonly]="isReadonly"
+              (onHover)="hoveringOver($event)" (onLeave)="resetStar($event)"
+              [titles]="['one','two','three']"></rating>
+      <span class="label"
+            [ngClass]="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}"
+            [ngStyle]="{display: (overStar && !isReadonly) ? 'inline' : 'none'}">{{percent}}%</span>
+
+      <pre class="card card-block card-header" style="margin:15px 0;">Rate: <b>{{rate}}</b>;  Readonly is: <i>{{isReadonly}}</i>;  Hovering over: <b>{{overStar || "none"}}</b></pre>
+
+      <button type="button" class="btn btn-sm btn-danger" (click)="rate = 0"
+              [disabled]="isReadonly">Clear
+      </button>
+      <button type="button" class="btn btn-sm btn-primary"
+              (click)="isReadonly = ! isReadonly">Toggle Readonly
+      </button>
+    </div>
+  </div>
+
+</div>
